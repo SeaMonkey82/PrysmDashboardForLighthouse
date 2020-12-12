@@ -1,6 +1,8 @@
 # PrysmDashboardForLighthouse
 Port of the Prysm Validator Dashboard for Lighthouse
 
+<img src=screenshot.png>
+
 Prerequisites:
 - Prometheus
 - Grafana
