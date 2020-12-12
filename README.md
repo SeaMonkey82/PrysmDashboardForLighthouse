@@ -8,7 +8,7 @@ Prerequisites:
 - cryptowat-exporter (https://github.com/nbarrientos/cryptowat_exporter)
 
 Instructions:
-- Edit lighthouse-supplemental.py and assign all of the variables at the top to their appropriate values.
+- Edit `lighthouse-supplemental.py` and assign all of the variables at the top to their appropriate values.
 - `pip3 install psutils && pip3 install prometheus_client`
 - `python3 lighthouse-supplemental.py`
 - Launch Prometheus using the included prometheus.yaml config or update your existing configuration as necessary
