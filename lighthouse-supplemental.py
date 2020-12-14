@@ -5,7 +5,7 @@ import requests
 import json
 import psutil
 
-NETWORK = 'pyrmont'             		# 'medalla', 'altona', 'spadina', 'pyrmont', 'mainnet', or 'toledo' MUST BE SPECIFIED WITH --network WHEN LAUNCHING LIGHTHOUSE
+NETWORK = 'pyrmont'             		# 'pyrmont' or 'mainnet' MUST BE SPECIFIED WITH --network WHEN LAUNCHING LIGHTHOUSE
 VALIDATOR_TRIGGER = 'vc'			# 'validator', 'vc', or 'v'
 BEACON_TRIGGER = 'bn'				# 'beacon', 'bn', or 'b'
 VALIDATOR_INDICES = [101,102,103]    	        # REPLACE THIS WITH YOUR VALIDATOR INDICES
