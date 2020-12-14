@@ -98,8 +98,9 @@ while (True):
 
 	waiting_for_eligibility = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_for_eligibility']))/(10**9)
 	waiting_in_queue = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_in_queue']))/(10**9)
+	waiting_for_finality = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_for_finality']))/(10**9)
 	standby_for_active = (sum([int(x['balance']) for x in vals if x['status'] == 'standby_for_active']))/(10**9)
-	total_pending = waiting_for_eligibility + waiting_in_queue + standby_for_active
+	total_pending = waiting_for_eligibility + waiting_in_queue + waiting_for_finality + standby_for_active
 	validators_total_balance.labels(state='Pending').set(total_pending)
 
 	active = (sum([int(x['balance']) for x in vals if x['status'] == 'active']))/(10**9)
