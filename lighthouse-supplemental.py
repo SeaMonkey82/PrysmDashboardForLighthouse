@@ -48,23 +48,23 @@ while (True):
 		balance = get(URL_PREFIX+str(validator_index)).json()["data"]["balance"]
 		balance_gauge.labels(index=validator_index).set(float(balance)/10**9)
 		status = get(URL_PREFIX+str(validator_index)).json()["data"]["status"]
-		if status == "waiting_in_queue":
+		if status == "pending_initialized":
 			validator_statuses.labels(index=validator_index).set(1)
-		elif status == "standby_for_active":
+		elif status == "pending_queued":
 			validator_statuses.labels(index=validator_index).set(2)
-		elif status == "active":
+		elif status == "active_ongoing":
 			validator_statuses.labels(index=validator_index).set(3)
-		elif status == "active_awaiting_voluntary_exit":
+		elif status == "active_exiting":
 			validator_statuses.labels(index=validator_index).set(4)
-		elif status == "active_awaiting_slashed_exit":
+		elif status == "active_slashed":
 			validator_statuses.labels(index=validator_index).set(5)
-		elif status == "exited_voluntarily":
+		elif status == "exited_unslashed":
 			validator_statuses.labels(index=validator_index).set(6)
 		elif status == "exited_slashed":
 			validator_statuses.labels(index=validator_index).set(6)
-		elif status == "withdrawable":
+		elif status == "withdrawal_possible":
 			validator_statuses.labels(index=validator_index).set(6)
-		elif status == "withdrawn":
+		elif status == "withdrawal_done":
 			validator_statuses.labels(index=validator_index).set(6)
 		else:
 			validator_statuses.labels(index=validator_index).set(0)
