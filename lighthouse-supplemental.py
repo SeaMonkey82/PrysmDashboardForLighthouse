@@ -77,9 +77,8 @@ while (True):
 		process_start_time.labels(process='validator').set(processCreationTime)
 		validatorPid = elem['pid']
 		p = psutil.Process(validatorPid)
-		validator_usage = p.cpu_percent()
-		time.sleep(1)
-		validator_usage = p.cpu_percent() / psutil.cpu_count()
+		validator_usage = p.cpu_percent(interval=1)
+		validator_usage = p.cpu_percent(interval=1) / psutil.cpu_count()
 		cpu_usage.labels(process='validator').set(validator_usage)
 
 	BeaconProcess = findBeaconProcess()
@@ -88,9 +87,8 @@ while (True):
 		process_start_time.labels(process='beacon').set(processCreationTime)
 		beaconPid = elem['pid']
 		p = psutil.Process(beaconPid)
-		beacon_usage = p.cpu_percent()
-		time.sleep(1)
-		beacon_usage = p.cpu_percent() / psutil.cpu_count()
+		beacon_usage = p.cpu_percent(interval=1)
+		beacon_usage = p.cpu_percent(interval=1) / psutil.cpu_count()
 		cpu_usage.labels(process='beacon').set(beacon_usage)
 
 	r = requests.get(URL_PREFIX)
