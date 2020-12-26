@@ -11,7 +11,7 @@ Prerequisites:
 
 Instructions:
 - Edit `lighthouse-supplemental.py` and assign all of the variables at the top to their appropriate values.
-- `pip3 install psutils && pip3 install prometheus_client`
+- `pip3 install psutil && pip3 install prometheus_client`
 - `python3 lighthouse-supplemental.py`
 - Launch Prometheus using the included `prometheus.yml` config or update your existing configuration as necessary
 - Import `Prysm Dashboard for Lighthouse.json` into Grafana
