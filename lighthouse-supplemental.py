@@ -54,7 +54,7 @@ while (True):
 			validator_statuses.labels(index=validator_index).set(2)
 		elif status == "waiting_for_finality":
 			validator_statuses.labels(index=validator_index).set(2)
-		elif status == "active":
+		elif status == "active_ongoing":
 			validator_statuses.labels(index=validator_index).set(3)
 		elif status == "active_awaiting_voluntary_exit":
 			validator_statuses.labels(index=validator_index).set(4)
