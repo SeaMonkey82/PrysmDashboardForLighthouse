@@ -60,7 +60,7 @@ while (True):
 			validator_statuses.labels(index=validator_index).set(4)
 		elif status == "active_awaiting_slashed_exit":
 			validator_statuses.labels(index=validator_index).set(5)
-		elif status == "exited_voluntarily":
+		elif status == "exited_unslashed":
 			validator_statuses.labels(index=validator_index).set(6)
 		elif status == "exited_slashed":
 			validator_statuses.labels(index=validator_index).set(6)
