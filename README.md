@@ -3,6 +3,10 @@ Port of the Prysm Validator Dashboard for Lighthouse
 
 <img src=screenshot.png>
 
+Note: I have updated the validator statuses within the supplemental metrics script to make this fully compatible with 
+      Lighthouse 1.2.0, but the additional metrics exposed in recent versions make much, if not all, of the supplemental metrics 
+      script redundant.
+
 Prerequisites:
 - Prometheus
 - Grafana
