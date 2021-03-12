@@ -50,7 +50,7 @@ while (True):
 		status = get(URL_PREFIX+str(validator_index)).json()["data"]["status"]
 		if status == "waiting_in_queue":
 			validator_statuses.labels(index=validator_index).set(1)
-		elif status == "standby_for_active":
+		elif status == "pending_initialized":
 			validator_statuses.labels(index=validator_index).set(2)
 		elif status == "waiting_for_finality":
 			validator_statuses.labels(index=validator_index).set(2)
@@ -64,7 +64,7 @@ while (True):
 			validator_statuses.labels(index=validator_index).set(6)
 		elif status == "exited_slashed":
 			validator_statuses.labels(index=validator_index).set(6)
-		elif status == "withdrawable":
+		elif status == "withdrawal_possible":
 			validator_statuses.labels(index=validator_index).set(6)
 		elif status == "withdrawn":
 			validator_statuses.labels(index=validator_index).set(6)
@@ -97,7 +97,7 @@ while (True):
 	waiting_for_eligibility = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_for_eligibility']))/(10**9)
 	waiting_in_queue = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_in_queue']))/(10**9)
 	waiting_for_finality = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_for_finality']))/(10**9)
-	standby_for_active = (sum([int(x['balance']) for x in vals if x['status'] == 'standby_for_active']))/(10**9)
+	standby_for_active = (sum([int(x['balance']) for x in vals if x['status'] == 'pending_initialized']))/(10**9)
 	total_pending = waiting_for_eligibility + waiting_in_queue + waiting_for_finality + standby_for_active
 	validators_total_balance.labels(state='Pending').set(total_pending)
 
