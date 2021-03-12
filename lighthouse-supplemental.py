@@ -101,7 +101,7 @@ while (True):
 	total_pending = waiting_for_eligibility + waiting_in_queue + waiting_for_finality + standby_for_active
 	validators_total_balance.labels(state='Pending').set(total_pending)
 
-	active = (sum([int(x['balance']) for x in vals if x['status'] == 'active']))/(10**9)
+	active = (sum([int(x['balance']) for x in vals if x['status'] == 'active_ongoing']))/(10**9)
 	validators_total_balance.labels(state='Active').set(active)
 
 	active_awaiting_voluntary_exit = (sum([int(x['balance']) for x in vals if x['status'] == 'active_awaiting_voluntary_exit']))/(10**9)
