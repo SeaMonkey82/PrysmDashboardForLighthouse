@@ -2696,7 +2696,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum(delta(crit_total{job=\"lighthouse-beacon\"}[1h]) > 0)",
+          "expr": "sum(delta(warn_total{job=\"lighthouse-beacon\"}[1h]) > 0)",
           "hide": false,
           "instant": false,
           "interval": "",
