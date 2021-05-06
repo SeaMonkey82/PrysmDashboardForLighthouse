@@ -5,7 +5,7 @@ import requests
 import json
 import psutil
 
-NETWORK = 'pyrmont'             		# 'pyrmont' or 'mainnet' MUST BE SPECIFIED WITH --network WHEN LAUNCHING LIGHTHOUSE
+NETWORK = 'pyrmont'             	# 'pyrmont' or 'mainnet' MUST BE SPECIFIED WITH --network WHEN LAUNCHING LIGHTHOUSE
 VALIDATOR_TRIGGER = 'vc'			# 'validator', 'vc', or 'v'
 BEACON_TRIGGER = 'bn'				# 'beacon', 'bn', or 'b'
 VALIDATOR_INDICES = [101,102,103]    	        # REPLACE THIS WITH YOUR VALIDATOR INDICES
@@ -48,8 +48,8 @@ while (True):
 		balance = get(URL_PREFIX+str(validator_index)).json()["data"]["balance"]
 		balance_gauge.labels(index=validator_index).set(float(balance)/10**9)
 		status = get(URL_PREFIX+str(validator_index)).json()["data"]["status"]
-		if status == "waiting_in_queue":
-			validator_statuses.labels(index=validator_index).set(1)
+		if status == "pending_queued":
+			validator_statuses.labels(index=validator_index).set(2)
 		elif status == "pending_initialized":
 			validator_statuses.labels(index=validator_index).set(2)
 		elif status == "waiting_for_finality":
@@ -95,10 +95,10 @@ while (True):
 	vals = r.json()['data']
 
 	waiting_for_eligibility = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_for_eligibility']))/(10**9)
-	waiting_in_queue = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_in_queue']))/(10**9)
+	pending_queued = (sum([int(x['balance']) for x in vals if x['status'] == 'pending_queued']))/(10**9)
 	waiting_for_finality = (sum([int(x['balance']) for x in vals if x['status'] == 'waiting_for_finality']))/(10**9)
 	standby_for_active = (sum([int(x['balance']) for x in vals if x['status'] == 'pending_initialized']))/(10**9)
-	total_pending = waiting_for_eligibility + waiting_in_queue + waiting_for_finality + standby_for_active
+	total_pending = waiting_for_eligibility + pending_queued + waiting_for_finality + standby_for_active
 	validators_total_balance.labels(state='Pending').set(total_pending)
 
 	active = (sum([int(x['balance']) for x in vals if x['status'] == 'active_ongoing']))/(10**9)
