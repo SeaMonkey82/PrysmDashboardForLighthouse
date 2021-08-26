@@ -2347,7 +2347,7 @@
           "refId": "C"
         },
         {
-          "expr": "beacon_participation_prev_epoch_target_attester{job=\"lighthouse-beacon\"} * 100",
+          "expr": "beacon_participation_prev_epoch_source_attesting_gwei_total{job=\"lighthouse-beacon\"} / beacon_participation_prev_epoch_active_gwei_total{job=\"lighthouse-beacon\"} * 100",
           "instant": false,
           "interval": "",
           "legendFormat": "Participation rate",
