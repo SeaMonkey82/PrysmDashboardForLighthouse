@@ -1617,6 +1617,7 @@
         {
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_slashed*1000)",
+          "format": "table",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -1626,6 +1627,7 @@
         {
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_exited*10)",
+          "format": "table",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -1635,6 +1637,7 @@
         {
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_withdrawable*100)",
+          "format": "table",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -1659,7 +1662,10 @@
             "mode": "reduceRow",
             "reduce": {
               "include": [
-                "Value #B"
+                "Value #B",
+                "Value #C",
+                "Value #D",
+                "Value #E"
               ],
               "reducer": "sum"
             }
@@ -1671,7 +1677,13 @@
             "excludeByName": {
               "Time 1": true,
               "Time 2": true,
-              "Value #B": true
+              "Time 3": true,
+              "Time 4": true,
+              "Time 5": true,
+              "Value #B": true,
+              "Value #C": true,
+              "Value #D": true,
+              "Value #E": true
             },
             "indexByName": {},
             "renameByName": {}
@@ -3878,5 +3890,5 @@
   "timezone": "",
   "title": "Prysm Dashboard for Lighthouse",
   "uid": "t2yHaa3Zz",
-  "version": 29
+  "version": 30
 }
