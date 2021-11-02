@@ -24,7 +24,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 23,
-  "iteration": 1632800667442,
+  "iteration": 1635817412807,
   "links": [],
   "panels": [
     {
@@ -3260,11 +3260,7 @@
         "message": "VALIDATOR ALERT: THE EARNING IN THE LAST HOUR IS LESS THAN 0",
         "name": "VALIDATOR: Hourly earning <= 0",
         "noDataState": "ok",
-        "notifications": [
-          {
-            "uid": "USY-LmRGz"
-          }
-        ]
+        "notifications": []
       },
       "aliasColors": {},
       "bars": false,
@@ -3468,7 +3464,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(delta(error_total[1h]) > 0) ",
+          "exemplar": true,
+          "expr": "error_total{job=\"$node_job\"} - error_total{job=\"$node_job\"} offset 1h",
           "instant": false,
           "interval": "",
           "legendFormat": "errors",
@@ -3476,7 +3473,7 @@
         },
         {
           "exemplar": true,
-          "expr": "sum(delta(warn_total[1h]) > 0)",
+          "expr": "warn_total{job=\"$node_job\"} - warn_total{job=\"$node_job\"} offset 1h",
           "instant": false,
           "interval": "",
           "legendFormat": "warnings",
@@ -3612,9 +3609,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "validator_statuses",
+          "exemplar": true,
+          "expr": "validator_monitor_slashed",
           "interval": "",
-          "legendFormat": "{{index}}",
+          "legendFormat": "{{validator}}",
           "refId": "A"
         }
       ],
@@ -3755,7 +3753,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "beacon_participation_prev_epoch_source_attesting_gwei_total / beacon_participation_prev_epoch_active_gwei_total * 100",
+          "expr": "beacon_participation_prev_epoch_attester*100",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -3812,7 +3810,7 @@
       }
     }
   ],
-  "refresh": "30s",
+  "refresh": "",
   "schemaVersion": 30,
   "style": "dark",
   "tags": [],
@@ -3890,5 +3888,5 @@
   "timezone": "",
   "title": "Prysm Dashboard for Lighthouse",
   "uid": "t2yHaa3Zz",
-  "version": 30
+  "version": 35
 }
