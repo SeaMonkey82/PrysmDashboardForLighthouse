@@ -23,8 +23,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 23,
-  "iteration": 1632800667442,
+  "id": 29,
+  "iteration": 1639320908795,
   "links": [],
   "panels": [
     {
@@ -1275,12 +1275,12 @@
       "id": 4,
       "legend": {
         "avg": false,
-        "current": false,
+        "current": true,
         "max": false,
         "min": false,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -3890,5 +3890,5 @@
   "timezone": "",
   "title": "Prysm Dashboard for Lighthouse",
   "uid": "t2yHaa3Zz",
-  "version": 30
+  "version": 4
 }
