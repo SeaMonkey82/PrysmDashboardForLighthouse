@@ -2652,7 +2652,7 @@
       "pluginVersion": "8.1.5",
       "targets": [
         {
-          "expr": "libp2p_peer_connected_peers_total",
+          "expr": "libp2p_peers",
           "instant": true,
           "interval": "",
           "legendFormat": "",
