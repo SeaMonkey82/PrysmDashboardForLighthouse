@@ -23,8 +23,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 23,
-  "iteration": 1635817412807,
+  "id": 29,
+  "iteration": 1639320908795,
   "links": [],
   "panels": [
     {
@@ -1275,12 +1275,12 @@
       "id": 4,
       "legend": {
         "avg": false,
-        "current": false,
+        "current": true,
         "max": false,
         "min": false,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -3260,7 +3260,11 @@
         "message": "VALIDATOR ALERT: THE EARNING IN THE LAST HOUR IS LESS THAN 0",
         "name": "VALIDATOR: Hourly earning <= 0",
         "noDataState": "ok",
-        "notifications": []
+        "notifications": [
+          {
+            "uid": "USY-LmRGz"
+          }
+        ]
       },
       "aliasColors": {},
       "bars": false,
@@ -3464,8 +3468,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "exemplar": true,
-          "expr": "error_total{job=\"$node_job\"} - error_total{job=\"$node_job\"} offset 1h",
+          "expr": "sum(delta(error_total[1h]) > 0) ",
           "instant": false,
           "interval": "",
           "legendFormat": "errors",
@@ -3473,7 +3476,7 @@
         },
         {
           "exemplar": true,
-          "expr": "warn_total{job=\"$node_job\"} - warn_total{job=\"$node_job\"} offset 1h",
+          "expr": "sum(delta(warn_total[1h]) > 0)",
           "instant": false,
           "interval": "",
           "legendFormat": "warnings",
@@ -3609,10 +3612,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "exemplar": true,
-          "expr": "validator_monitor_slashed",
+          "expr": "validator_statuses",
           "interval": "",
-          "legendFormat": "{{validator}}",
+          "legendFormat": "{{index}}",
           "refId": "A"
         }
       ],
@@ -3753,7 +3755,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "beacon_participation_prev_epoch_attester*100",
+          "expr": "beacon_participation_prev_epoch_source_attesting_gwei_total / beacon_participation_prev_epoch_active_gwei_total * 100",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -3810,7 +3812,7 @@
       }
     }
   ],
-  "refresh": "",
+  "refresh": "30s",
   "schemaVersion": 30,
   "style": "dark",
   "tags": [],
@@ -3888,5 +3890,5 @@
   "timezone": "",
   "title": "Prysm Dashboard for Lighthouse",
   "uid": "t2yHaa3Zz",
-  "version": 35
+  "version": 4
 }
