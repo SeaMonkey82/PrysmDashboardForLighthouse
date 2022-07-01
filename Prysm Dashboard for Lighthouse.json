@@ -1894,7 +1894,7 @@
           "format": "time_series",
           "instant": true,
           "interval": "",
-          "legendFormat": "Successful Propposals",
+          "legendFormat": "Successful Proposals",
           "refId": "E"
         },
         {
