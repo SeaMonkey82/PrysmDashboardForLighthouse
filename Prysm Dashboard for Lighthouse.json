@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,15 +24,17 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 29,
-  "iteration": 1642713431391,
+  "id": 31,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -73,7 +78,6 @@
         "y": 0
       },
       "id": 42,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -91,22 +95,27 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "1",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "VALIDATOR",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "This panel shows the earning during the last hour, and the annualized % of the hourly earning.\n\nThose data won't be shown until the first validator is at least one hour old, or that you started prometheus at least one hour ago.\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
         "defaults": {
@@ -291,9 +300,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "hide": false,
@@ -303,6 +316,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -311,6 +328,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[1h:30s])*32E9/24/365)*100",
           "instant": true,
@@ -319,13 +340,14 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Hourly earning",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "This panel shows the earning during the last day, and the annualized % of the daily earning.\n\nThose data won't be shown until the first validator is at least one day old, or that you started prometheus at least one day ago.\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
         "defaults": {
@@ -510,9 +532,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1d > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "instant": true,
@@ -521,6 +547,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1d > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -529,6 +559,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1d > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[1d:12m])*32E9/365)*100",
           "instant": true,
@@ -537,13 +571,14 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Daily earning",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "This panel shows the earning during the last week, and the annualized % of the weekly earning.\n\nThose data won't be shown until the first validator is at least one week old, or that you started prometheus at least one week ago.\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
         "defaults": {
@@ -728,9 +763,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1w) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1w > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "instant": true,
@@ -739,6 +778,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1w) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1w > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -747,6 +790,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1w) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1w > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[1w:84m])*32E9*7/365)*100",
           "instant": true,
@@ -755,13 +802,14 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Weekly earning",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "This panel shows the earning during the last month, and the annualized % of the monthly earning.\n\nThose data won't be shown until the first validator is at least one month old, or that you started prometheus at least one month ago. Ensure to run Prometheus with the flag `--storage.tsdb.retention.time=31d` if you want this panel to get enough data\n\nAlso, the annualized % might be wrong if you have downtime while new validators are getting validated",
       "fieldConfig": {
         "defaults": {
@@ -946,9 +994,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 30d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 30d > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "instant": true,
@@ -957,6 +1009,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 30d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 30d > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -965,6 +1021,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 30d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 30d > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[30d:6h])*32E9/12)*100",
           "instant": true,
@@ -973,13 +1033,14 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Monthly earning",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 2,
@@ -1155,9 +1216,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(sum(validator_monitor_balance_gwei) - count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)/1E9",
           "instant": true,
@@ -1166,6 +1231,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "((sum(validator_monitor_balance_gwei) - count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
@@ -1174,6 +1243,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(sum(validator_monitor_balance_gwei) - count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)*100/(count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)",
           "instant": true,
@@ -1182,14 +1255,14 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Total earning",
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 1,
@@ -1238,9 +1311,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(time()-process_start_time_seconds{job=\"$validator_job\"})/3600",
           "hide": false,
@@ -1250,8 +1327,6 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Validator process started",
       "type": "stat"
     },
@@ -1262,7 +1337,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1289,7 +1367,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1299,6 +1377,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(sum(validator_monitor_balance_gwei > 16E9))/1E9",
           "interval": "",
@@ -1307,9 +1389,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Total balance",
       "tooltip": {
         "shared": true,
@@ -1318,9 +1398,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -1330,22 +1408,16 @@
           "format": "short",
           "label": "ETH",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -1358,7 +1430,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1385,7 +1460,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1395,6 +1470,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(validator_monitor_balance_gwei > 16E9)/1E9",
           "format": "time_series",
@@ -1406,9 +1485,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Validator balance",
       "tooltip": {
         "shared": true,
@@ -1417,9 +1494,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -1429,27 +1504,24 @@
           "format": "short",
           "label": "ETH",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
-          "decimals": null,
           "format": "short",
           "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1458,7 +1530,8 @@
           },
           "custom": {
             "align": "auto",
-            "displayMode": "auto"
+            "displayMode": "auto",
+            "inspect": false
           },
           "mappings": [],
           "thresholds": {
@@ -1509,8 +1582,7 @@
                 "value": 9
               },
               {
-                "id": "custom.align",
-                "value": null
+                "id": "custom.align"
               },
               {
                 "id": "custom.displayMode",
@@ -1592,11 +1664,28 @@
       },
       "id": 22,
       "options": {
-        "showHeader": true
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Status"
+          }
+        ]
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_balance_gwei/1E9)",
           "format": "table",
@@ -1606,6 +1695,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_active)",
           "format": "table",
@@ -1615,6 +1708,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_slashed*1000)",
           "format": "table",
@@ -1625,6 +1722,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_exited*10)",
           "format": "table",
@@ -1635,6 +1736,10 @@
           "refId": "D"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "max by(validator) (validator_monitor_withdrawable*100)",
           "format": "table",
@@ -1645,8 +1750,6 @@
           "refId": "E"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Validator main info",
       "transformations": [
         {
@@ -1695,7 +1798,10 @@
     },
     {
       "columns": [],
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "This panel will count only the votes done since your validator process started",
       "fontSize": "100%",
       "gridPos": {
@@ -1705,18 +1811,15 @@
         "y": 9
       },
       "id": 20,
-      "pageSize": null,
       "pluginVersion": "6.7.2",
       "showHeader": true,
       "sort": {
-        "col": null,
         "desc": false
       },
       "styles": [
         {
           "alias": "",
           "align": "auto",
-          "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
@@ -1733,7 +1836,6 @@
         {
           "alias": "",
           "align": "auto",
-          "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
@@ -1870,6 +1972,10 @@
       ],
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(vc_signed_attestations_total{status=\"success\"})",
           "format": "time_series",
@@ -1880,6 +1986,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(vc_signed_aggregates_total{status=\"success\"})",
           "format": "time_series",
@@ -1889,6 +1999,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(vc_signed_beacon_blocks_total{status=\"success\"})",
           "format": "time_series",
@@ -1898,6 +2012,10 @@
           "refId": "E"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(vc_signed_selection_proofs_total{status=\"success\"})",
           "hide": false,
@@ -1907,8 +2025,6 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Validator vote summary",
       "transform": "timeseries_to_rows",
       "transformations": [
@@ -1921,8 +2037,10 @@
       "type": "table-old"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1966,7 +2084,6 @@
         "y": 14
       },
       "id": 59,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -1984,23 +2101,27 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "1",
           "interval": "",
           "legendFormat": "NODE",
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "BOTH",
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2044,7 +2165,6 @@
         "y": 14
       },
       "id": 30,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -2062,23 +2182,27 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "1",
           "interval": "",
           "legendFormat": "NODE",
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "NODE",
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2122,7 +2246,6 @@
         "y": 14
       },
       "id": 41,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -2140,17 +2263,19 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "1",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "ALERTS",
       "type": "stat"
     },
@@ -2174,7 +2299,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
@@ -2205,7 +2333,7 @@
         "alertThreshold": true
       },
       "percentage": true,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2228,24 +2356,40 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "avg_over_time(process_resident_memory_bytes{job=\"lighthouse-beacon\"}[1m:5s])",
           "interval": "",
           "legendFormat": "memory beacon",
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "avg_over_time(process_resident_memory_bytes{job=\"lighthouse-validator\"}[1m:5s])",
           "interval": "",
           "legendFormat": "memory validator",
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "cpu_usage{process=\"beacon\"}",
           "interval": "",
           "legendFormat": "CPU {{process}}",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "cpu_usage{process=\"validator\"}",
           "interval": "",
           "legendFormat": "CPU {{process}}",
@@ -2262,9 +2406,7 @@
           "yaxis": "left"
         }
       ],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Hardware usage",
       "tooltip": {
         "shared": true,
@@ -2273,20 +2415,15 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
-          "decimals": null,
           "format": "decbytes",
           "label": "mem usage",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
@@ -2294,14 +2431,11 @@
           "format": "percent",
           "label": "CPU usage rate",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -2314,7 +2448,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "This graph is made for trading purpose mostly.\nSupposing that if a lot of validators are exiting, price is gonna dump.\n\nAlso this can prevent to exit while exiting queue is too long, same for depositing while pending queue is too long.\n\n",
       "fill": 1,
       "fillGradient": 0,
@@ -2345,7 +2482,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2363,6 +2500,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "beacon_head_state_validator_balances_total / 1E9",
           "interval": "",
@@ -2370,18 +2511,30 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "validators_total_balance{state=\"Pending\"}",
           "interval": "",
           "legendFormat": "Pending",
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "validators_total_balance{state=\"Exiting\"}",
           "interval": "",
           "legendFormat": "Exiting",
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "beacon_participation_prev_epoch_source_attesting_gwei_total / beacon_participation_prev_epoch_active_gwei_total * 100",
           "instant": false,
@@ -2393,7 +2546,6 @@
       "thresholds": [],
       "timeFrom": "30d",
       "timeRegions": [],
-      "timeShift": null,
       "title": "Balance validators status and participation rate",
       "tooltip": {
         "shared": true,
@@ -2402,9 +2554,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -2414,13 +2564,10 @@
           "format": "short",
           "label": "ETH",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "$$hashKey": "object:413",
-          "decimals": null,
           "format": "percent",
           "label": "",
           "logBase": 1,
@@ -2430,13 +2577,14 @@
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "decimals": 1,
@@ -2485,9 +2633,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "(time()-process_start_time_seconds{job=\"$node_job\"})/3600",
           "instant": true,
@@ -2496,13 +2648,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Node process started",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "gridPos": {
         "h": 12,
         "w": 5,
@@ -2511,17 +2664,23 @@
       },
       "id": 24,
       "options": {
+        "alertInstanceLabelFilter": "",
         "alertName": "",
         "dashboardAlerts": true,
         "dashboardTitle": "",
-        "folderId": null,
+        "groupBy": [],
+        "groupMode": "default",
         "maxItems": 10,
         "showOptions": "current",
         "sortOrder": 3,
         "stateFilter": {
           "alerting": false,
+          "error": true,
           "execution_error": false,
+          "firing": true,
+          "noData": false,
           "no_data": false,
+          "normal": false,
           "ok": false,
           "paused": false,
           "pending": false
@@ -2529,14 +2688,23 @@
         "tags": []
       },
       "pluginVersion": "8.1.5",
-      "timeFrom": null,
-      "timeShift": null,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "All alerts",
       "type": "alertlist"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2584,9 +2752,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "slotclock_present_slot-beacon_head_state_slot",
           "instant": true,
           "interval": "",
@@ -2594,14 +2766,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Slots behind",
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -2649,9 +2821,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "libp2p_peers",
           "instant": true,
@@ -2660,13 +2836,14 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Peers connected",
       "type": "stat"
     },
     {
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "description": "This panel won't have consistant values during the first hour of the node started process",
       "fieldConfig": {
         "defaults": {
@@ -2716,6 +2893,8 @@
       "id": 40,
       "options": {
         "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
@@ -2727,9 +2906,13 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "error_total{job=\"$node_job\"} - error_total{job=\"$node_job\"} offset 1h",
           "hide": false,
@@ -2739,6 +2922,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "warn_total{job=\"$node_job\"} - warn_total{job=\"$node_job\"} offset 1h",
           "hide": false,
@@ -2748,154 +2935,8 @@
           "refId": "B"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Hourly log type counter",
       "type": "bargauge"
-    },
-    {
-      "alert": {
-        "alertRuleTags": {},
-        "conditions": [
-          {
-            "evaluator": {
-              "params": [
-                0.1
-              ],
-              "type": "lt"
-            },
-            "operator": {
-              "type": "and"
-            },
-            "query": {
-              "params": [
-                "A",
-                "10s",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "last"
-            },
-            "type": "query"
-          }
-        ],
-        "executionErrorState": "alerting",
-        "for": "0m",
-        "frequency": "1m",
-        "handler": 1,
-        "message": "One of the two process just restarted.",
-        "name": "WARN NODE/VALIDATOR: The process just restarted",
-        "noDataState": "no_data",
-        "notifications": []
-      },
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "description": "This alert is useful only for people who has automatic restart of the process after crash. \nThis can be made for example by using the prysm.bat file on windows with \"set PRYSM_AUTORESTART=true&\", or with docker with \"--restart always\"",
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 1,
-        "w": 5,
-        "x": 19,
-        "y": 27
-      },
-      "hiddenSeries": false,
-      "id": 61,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.1.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "exemplar": true,
-          "expr": "(time()-process_start_time_seconds{job=\"lighthouse-beacon\"})/3600",
-          "interval": "",
-          "legendFormat": "{{process}}",
-          "refId": "A"
-        },
-        {
-          "exemplar": true,
-          "expr": "(time()-process_start_time_seconds{job=\"lighthouse-validator\"})/3600",
-          "interval": "",
-          "legendFormat": "{{process}}",
-          "refId": "B"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 0.1,
-          "visible": true
-        }
-      ],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Warn: The process just restarted",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 1,
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
     },
     {
       "alert": {
@@ -2942,14 +2983,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 28
+        "y": 27
       },
       "hiddenSeries": false,
       "id": 28,
@@ -2969,7 +3013,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2979,6 +3023,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "slotclock_present_slot-beacon_head_state_slot",
           "interval": "",
           "legendFormat": "node slots behind",
@@ -2995,9 +3043,7 @@
           "visible": true
         }
       ],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Alert: 50 slots behind",
       "tooltip": {
         "shared": true,
@@ -3006,33 +3052,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -3099,14 +3136,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 29
+        "y": 28
       },
       "hiddenSeries": false,
       "id": 44,
@@ -3127,7 +3167,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3137,6 +3177,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "up{job=\"lighthouse-beacon\"}",
           "hide": false,
@@ -3146,6 +3190,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "up{job=\"lighthouse-validator\"}",
           "interval": "",
@@ -3163,9 +3211,7 @@
           "visible": true
         }
       ],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Alert: Process down",
       "tooltip": {
         "shared": true,
@@ -3174,33 +3220,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -3271,14 +3308,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 30
+        "y": 29
       },
       "hiddenSeries": false,
       "id": 48,
@@ -3299,7 +3339,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3309,6 +3349,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9",
           "instant": false,
@@ -3327,9 +3371,7 @@
           "visible": true
         }
       ],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Alert: Hourly earning <= 0",
       "tooltip": {
         "shared": true,
@@ -3338,9 +3380,7 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
@@ -3350,22 +3390,16 @@
           "format": "short",
           "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -3432,14 +3466,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 31
+        "y": 30
       },
       "hiddenSeries": false,
       "id": 52,
@@ -3459,7 +3496,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3469,6 +3506,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "sum(delta(error_total[1h]) > 0) ",
           "instant": false,
           "interval": "",
@@ -3476,6 +3517,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "sum(delta(warn_total[1h]) > 0)",
           "instant": false,
@@ -3494,9 +3539,7 @@
           "visible": true
         }
       ],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Alert: 50 errors  or 100 warns  in 1h",
       "tooltip": {
         "shared": true,
@@ -3505,33 +3548,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -3576,14 +3610,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 32
+        "y": 31
       },
       "hiddenSeries": false,
       "id": 50,
@@ -3603,7 +3640,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3613,6 +3650,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "expr": "validator_statuses",
           "interval": "",
           "legendFormat": "{{index}}",
@@ -3637,9 +3678,7 @@
           "visible": true
         }
       ],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Alert: Validator has been slashed",
       "tooltip": {
         "shared": true,
@@ -3648,33 +3687,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -3718,14 +3748,17 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 33
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 65,
@@ -3745,7 +3778,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "9.0.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3755,6 +3788,10 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
           "exemplar": true,
           "expr": "beacon_participation_prev_epoch_source_attesting_gwei_total / beacon_participation_prev_epoch_active_gwei_total * 100",
           "interval": "",
@@ -3772,9 +3809,7 @@
           "visible": true
         }
       ],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Alert: Participation rate < 66%",
       "tooltip": {
         "shared": true,
@@ -3783,38 +3818,29 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "percent",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 30,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3826,10 +3852,11 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "Prometheus",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "Gf1udFmMk"
+        },
         "definition": "label_values(crypto_currency, pair)",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "Currency converter",
@@ -3850,20 +3877,14 @@
         "useTags": false
       },
       {
-        "description": null,
-        "error": null,
         "hide": 2,
-        "label": null,
         "name": "node_job",
         "query": "lighthouse-beacon",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
-        "description": null,
-        "error": null,
         "hide": 2,
-        "label": null,
         "name": "validator_job",
         "query": "lighthouse-validator",
         "skipUrlSync": false,
@@ -3891,5 +3912,6 @@
   "timezone": "",
   "title": "Prysm Dashboard for Lighthouse",
   "uid": "t2yHaa3Zz",
-  "version": 5
+  "version": 6,
+  "weekStart": ""
 }
