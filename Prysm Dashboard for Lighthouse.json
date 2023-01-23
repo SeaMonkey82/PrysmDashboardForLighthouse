@@ -95,7 +95,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
@@ -300,19 +300,21 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "ETH",
+          "range": false,
           "refId": "A"
         },
         {
@@ -320,11 +322,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
           "interval": "",
           "legendFormat": "$fiat",
+          "range": false,
           "refId": "C"
         },
         {
@@ -332,11 +336,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[1h:30s])*32E9/24/365)*100",
           "instant": true,
           "interval": "",
           "legendFormat": "Annualized %",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -532,18 +538,20 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1d > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "ETH",
+          "range": false,
           "refId": "A"
         },
         {
@@ -551,11 +559,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1d > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
           "interval": "",
           "legendFormat": "$fiat",
+          "range": false,
           "refId": "C"
         },
         {
@@ -563,11 +573,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1d > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[1d:12m])*32E9/365)*100",
           "instant": true,
           "interval": "",
           "legendFormat": "Annualized %",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -763,18 +775,20 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1w) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1w > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "ETH",
+          "range": false,
           "refId": "A"
         },
         {
@@ -782,11 +796,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1w) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1w > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
           "interval": "",
           "legendFormat": "$fiat",
+          "range": false,
           "refId": "C"
         },
         {
@@ -794,11 +810,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1w) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1w > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[1w:84m])*32E9*7/365)*100",
           "instant": true,
           "interval": "",
           "legendFormat": "Annualized %",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -994,18 +1012,20 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 30d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 30d > 0)*32E9))/1E9*absent(crypto_currency{pair=~\"eth$fiat\"})",
           "instant": true,
           "interval": "",
           "legendFormat": "ETH",
+          "range": false,
           "refId": "A"
         },
         {
@@ -1013,11 +1033,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 30d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 30d > 0)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
           "interval": "",
           "legendFormat": "$fiat",
+          "range": false,
           "refId": "C"
         },
         {
@@ -1025,11 +1047,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 30d) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 30d > 0)*32E9)/(avg_over_time(count(validator_monitor_balance_gwei > 16E9)[30d:6h])*32E9/12)*100",
           "instant": true,
           "interval": "",
           "legendFormat": "Annualized %",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -1195,7 +1219,7 @@
         ]
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 5,
         "x": 16,
         "y": 1
@@ -1216,18 +1240,20 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(sum(validator_monitor_balance_gwei) - count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)/1E9",
           "instant": true,
           "interval": "",
           "legendFormat": "ETH",
+          "range": false,
           "refId": "A"
         },
         {
@@ -1235,11 +1261,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "((sum(validator_monitor_balance_gwei) - count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)*sum(crypto_currency{pair=\"eth$fiat\"}))/1E9",
           "instant": true,
           "interval": "",
           "legendFormat": "$fiat",
+          "range": false,
           "refId": "C"
         },
         {
@@ -1247,11 +1275,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(sum(validator_monitor_balance_gwei) - count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)*100/(count(validator_monitor_balance_gwei > 16E9 and validator_monitor_active == 1)*32E9)",
           "instant": true,
           "interval": "",
           "legendFormat": "ROI",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -1311,19 +1341,21 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(time()-process_start_time_seconds{job=\"$validator_job\"})/3600",
           "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1367,7 +1399,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1381,10 +1413,12 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(sum(validator_monitor_balance_gwei > 16E9))/1E9",
           "interval": "",
           "legendFormat": "Total balance",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1460,7 +1494,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1474,13 +1508,15 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(validator_monitor_balance_gwei > 16E9)/1E9",
           "format": "time_series",
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{validator}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1660,7 +1696,7 @@
         "h": 5,
         "w": 8,
         "x": 16,
-        "y": 4
+        "y": 5
       },
       "id": 22,
       "options": {
@@ -1679,19 +1715,21 @@
           }
         ]
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "max by(validator) (validator_monitor_balance_gwei/1E9)",
           "format": "table",
           "instant": true,
           "interval": "",
           "legendFormat": "",
+          "range": false,
           "refId": "A"
         },
         {
@@ -1699,12 +1737,14 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "max by(validator) (validator_monitor_active)",
           "format": "table",
           "instant": true,
           "interval": "",
           "legendFormat": "Active",
+          "range": false,
           "refId": "B"
         },
         {
@@ -1712,13 +1752,15 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "max by(validator) (validator_monitor_slashed*1000)",
           "format": "table",
           "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "Slashed",
+          "range": false,
           "refId": "C"
         },
         {
@@ -1726,13 +1768,15 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "max by(validator) (validator_monitor_exited*10)",
           "format": "table",
           "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "Exited",
+          "range": false,
           "refId": "D"
         },
         {
@@ -1740,13 +1784,15 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "max by(validator) (validator_monitor_withdrawable*100)",
           "format": "table",
           "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "Withdrawable",
+          "range": false,
           "refId": "E"
         }
       ],
@@ -1808,7 +1854,7 @@
         "h": 5,
         "w": 8,
         "x": 16,
-        "y": 9
+        "y": 10
       },
       "id": 20,
       "pluginVersion": "6.7.2",
@@ -1976,13 +2022,15 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(vc_signed_attestations_total{status=\"success\"})",
           "format": "time_series",
           "instant": true,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "Successful Attestations",
+          "range": false,
           "refId": "A"
         },
         {
@@ -1990,12 +2038,14 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(vc_signed_aggregates_total{status=\"success\"})",
           "format": "time_series",
           "instant": true,
           "interval": "",
           "legendFormat": "Successful Aggregates",
+          "range": false,
           "refId": "C"
         },
         {
@@ -2003,12 +2053,14 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(vc_signed_beacon_blocks_total{status=\"success\"})",
           "format": "time_series",
           "instant": true,
           "interval": "",
           "legendFormat": "Successful Proposals",
+          "range": false,
           "refId": "E"
         },
         {
@@ -2016,12 +2068,14 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(vc_signed_selection_proofs_total{status=\"success\"})",
           "hide": false,
           "instant": true,
           "interval": "",
           "legendFormat": "Successful Selection Proofs",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -2101,7 +2155,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
@@ -2115,168 +2169,6 @@
         }
       ],
       "title": "BOTH",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Gf1udFmMk"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "1": {
-                  "text": ""
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 0
-              },
-              {
-                "color": "#1F60C4",
-                "value": 0
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 1,
-        "w": 11,
-        "x": 8,
-        "y": 14
-      },
-      "id": 30,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "/^NODE$/",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.7",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Gf1udFmMk"
-          },
-          "expr": "1",
-          "interval": "",
-          "legendFormat": "NODE",
-          "refId": "A"
-        }
-      ],
-      "title": "NODE",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "Gf1udFmMk"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "1": {
-                  "text": ""
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#299c46",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 0
-              },
-              {
-                "color": "#8F3BB8",
-                "value": 0
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 1,
-        "w": 5,
-        "x": 19,
-        "y": 14
-      },
-      "id": 41,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.7",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "Gf1udFmMk"
-          },
-          "expr": "1",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "title": "ALERTS",
       "type": "stat"
     },
     {
@@ -2333,7 +2225,7 @@
         "alertThreshold": true
       },
       "percentage": true,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2439,6 +2331,168 @@
       }
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 0
+              },
+              {
+                "color": "#1F60C4",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 11,
+        "x": 8,
+        "y": 15
+      },
+      "id": 30,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^NODE$/",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
+          "expr": "1",
+          "interval": "",
+          "legendFormat": "NODE",
+          "refId": "A"
+        }
+      ],
+      "title": "NODE",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "Gf1udFmMk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "1": {
+                  "text": ""
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#299c46",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 0
+              },
+              {
+                "color": "#8F3BB8",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 5,
+        "x": 19,
+        "y": 15
+      },
+      "id": 41,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "Gf1udFmMk"
+          },
+          "expr": "1",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "ALERTS",
+      "type": "stat"
+    },
+    {
       "aliasColors": {
         "Active": "light-green",
         "Exiting": "red",
@@ -2459,7 +2513,7 @@
         "h": 12,
         "w": 8,
         "x": 8,
-        "y": 15
+        "y": 16
       },
       "hiddenSeries": false,
       "hideTimeOverride": false,
@@ -2482,7 +2536,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -2504,10 +2558,12 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "beacon_head_state_validator_balances_total / 1E9",
           "interval": "",
           "legendFormat": "Active",
+          "range": true,
           "refId": "A"
         },
         {
@@ -2515,9 +2571,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "validators_total_balance{state=\"Pending\"}",
+          "instant": false,
           "interval": "",
           "legendFormat": "Pending",
+          "range": true,
           "refId": "B"
         },
         {
@@ -2525,9 +2585,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "validators_total_balance{state=\"Exiting\"}",
+          "instant": false,
           "interval": "",
           "legendFormat": "Exiting",
+          "range": true,
           "refId": "C"
         },
         {
@@ -2535,11 +2599,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "beacon_participation_prev_epoch_source_attesting_gwei_total / beacon_participation_prev_epoch_active_gwei_total * 100",
           "instant": false,
           "interval": "",
           "legendFormat": "Participation rate",
+          "range": true,
           "refId": "D"
         }
       ],
@@ -2614,7 +2680,7 @@
         "h": 2,
         "w": 3,
         "x": 16,
-        "y": 15
+        "y": 16
       },
       "id": 56,
       "links": [],
@@ -2633,18 +2699,20 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(time()-process_start_time_seconds{job=\"$node_job\"})/3600",
           "instant": true,
           "interval": "",
           "legendFormat": "",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -2660,7 +2728,7 @@
         "h": 12,
         "w": 5,
         "x": 19,
-        "y": 15
+        "y": 16
       },
       "id": 24,
       "options": {
@@ -2685,7 +2753,8 @@
           "paused": false,
           "pending": false
         },
-        "tags": []
+        "tags": [],
+        "viewMode": "list"
       },
       "pluginVersion": "8.1.5",
       "targets": [
@@ -2733,7 +2802,7 @@
         "h": 2,
         "w": 3,
         "x": 16,
-        "y": 17
+        "y": 18
       },
       "id": 26,
       "links": [],
@@ -2752,7 +2821,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
@@ -2802,7 +2871,7 @@
         "h": 2,
         "w": 3,
         "x": 16,
-        "y": 19
+        "y": 20
       },
       "id": 34,
       "links": [],
@@ -2821,18 +2890,20 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "libp2p_peers",
           "instant": true,
           "interval": "",
           "legendFormat": "",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -2888,7 +2959,7 @@
         "h": 6,
         "w": 3,
         "x": 16,
-        "y": 21
+        "y": 22
       },
       "id": 40,
       "options": {
@@ -2906,19 +2977,21 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "error_total{job=\"$node_job\"} - error_total{job=\"$node_job\"} offset 1h",
           "hide": false,
           "instant": false,
           "interval": "",
           "legendFormat": "Errors",
+          "range": true,
           "refId": "A"
         },
         {
@@ -2926,12 +2999,14 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "warn_total{job=\"$node_job\"} - warn_total{job=\"$node_job\"} offset 1h",
           "hide": false,
           "instant": false,
           "interval": "",
           "legendFormat": "Warnings",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -2993,7 +3068,7 @@
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 27
+        "y": 28
       },
       "hiddenSeries": false,
       "id": 28,
@@ -3013,7 +3088,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3027,9 +3102,12 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
+          "editorMode": "code",
           "expr": "slotclock_present_slot-beacon_head_state_slot",
+          "instant": false,
           "interval": "",
           "legendFormat": "node slots behind",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -3146,7 +3224,7 @@
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 28
+        "y": 29
       },
       "hiddenSeries": false,
       "id": 44,
@@ -3167,7 +3245,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3181,12 +3259,14 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "up{job=\"lighthouse-beacon\"}",
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "beacon node",
+          "range": true,
           "refId": "A"
         },
         {
@@ -3194,10 +3274,12 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "up{job=\"lighthouse-validator\"}",
           "interval": "",
           "legendFormat": "validator",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -3318,7 +3400,7 @@
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 29
+        "y": 30
       },
       "hiddenSeries": false,
       "id": 48,
@@ -3339,7 +3421,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3353,11 +3435,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "sum(validator_monitor_balance_gwei) - sum(validator_monitor_balance_gwei offset 1h) - count(validator_monitor_balance_gwei > 16E9)*32E9 + count(validator_monitor_balance_gwei offset 1h > 0)*32E9",
           "instant": false,
           "interval": "",
           "legendFormat": "validators earning on 1h",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -3476,7 +3560,7 @@
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 30
+        "y": 31
       },
       "hiddenSeries": false,
       "id": 52,
@@ -3496,7 +3580,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3510,10 +3594,12 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
+          "editorMode": "code",
           "expr": "sum(delta(error_total[1h]) > 0) ",
           "instant": false,
           "interval": "",
           "legendFormat": "errors",
+          "range": true,
           "refId": "A"
         },
         {
@@ -3521,11 +3607,13 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "sum(delta(warn_total[1h]) > 0)",
           "instant": false,
           "interval": "",
           "legendFormat": "warnings",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -3620,7 +3708,7 @@
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 31
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 50,
@@ -3640,7 +3728,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3758,7 +3846,7 @@
         "h": 1,
         "w": 5,
         "x": 19,
-        "y": 32
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 65,
@@ -3778,7 +3866,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.7",
+      "pluginVersion": "9.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -3792,10 +3880,12 @@
             "type": "prometheus",
             "uid": "Gf1udFmMk"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "beacon_participation_prev_epoch_source_attesting_gwei_total / beacon_participation_prev_epoch_active_gwei_total * 100",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -3840,7 +3930,7 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 36,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3912,6 +4002,6 @@
   "timezone": "",
   "title": "Prysm Dashboard for Lighthouse",
   "uid": "t2yHaa3Zz",
-  "version": 6,
+  "version": 36,
   "weekStart": ""
 }
